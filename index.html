@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Neighborhood Map</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="js/app.js"></script>
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+
+	<body>
+
+		<header class="header">
+			<!--div-->
+				<span data-bind="click: toggleList">
+					<i class="fas fa-list-ul list-icon" ></i>
+				</span>
+				<input type="text" class="search-box" placeholder="Filter locations" title="Type in a location" data-bind="textInput: input">
+			<!--/div-->	
+			<ul class="location-list" data-bind="foreach: searchList" id="list">
+				<li>
+					<a href="#" data-bind="text: title, click: showInfoWindow"></a>
+				</li>
+			</ul>		
+		</header>
+
+
+
+		<main class="g-map" id="map"></main>
+
+		<script async defer onerror="initMapError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrObf2CXRJIHlqHr__b-rjoAQZzERAJ1k&libraries=places,geometry&v=3&callback=initMap"></script>
+	</body>
+</html>
