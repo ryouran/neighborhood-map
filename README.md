@@ -16,7 +16,7 @@ This goal of the project is to develop a single page application using Knockout.
 
 ### Getting started
 
-1. Download or clone [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository.
+1. Download or clone the repository.
 2. Open index.html.
 
 
