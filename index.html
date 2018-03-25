@@ -15,20 +15,16 @@
 	<body>
 
 		<header class="header">
-			<!--div-->
-				<span data-bind="click: toggleList">
-					<i class="fas fa-list-ul list-icon" ></i>
-				</span>
-				<input type="text" class="search-box" placeholder="Filter locations" title="Type in a location" data-bind="textInput: input">
-			<!--/div-->	
+			<span data-bind="click: toggleList">
+				<i class="fas fa-list-ul list-icon" ></i>
+			</span>
+			<input type="text" class="search-box" placeholder="Filter locations" title="Type in a location" data-bind="textInput: input">
 			<ul class="location-list" data-bind="foreach: searchList" id="list">
 				<li>
 					<a href="#" data-bind="text: title, click: showInfoWindow"></a>
 				</li>
 			</ul>		
 		</header>
-
-
 
 		<main class="g-map" id="map"></main>
 
