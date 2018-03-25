@@ -1,3 +1,5 @@
+'user strict';
+
 var map;
 var markers = [];
 
@@ -94,17 +96,17 @@ var Location = function(data){
 			var clientSecret = "GOIRIA2JANLTTFDJS50FJCTPI4XCGGJ51QUEUOBSIJLBRZL5";
 			var lat = marker.getPosition().lat();
 			var lng = marker.getPosition().lng();
-			var url = 'https://api.foursquare.com/v2/venues/search?ll=' + lat + ',' + lng 
-				+ '&client_id=' + clientId + '&client_secret=' + clientSecret 
-				+ '&v=20170801&limit=1&query=' + marker.title;
+			var url = 'https://api.foursquare.com/v2/venues/search?ll=' + lat + ',' + lng +
+				'&client_id=' + clientId + '&client_secret=' + clientSecret +
+				'&v=20170801&limit=1&query=' + marker.title;
 
 
 		$.getJSON(url).done(function(data) {
 			var results = data.response.venues[0];
 			var address = results.location.formattedAddress[0] + '<br>' +
 				" " + results.location.formattedAddress[1];
-			url = results.url;
-			name = results.name;
+			var url = results.url;
+			var name = results.name;
 			infoWindow.setContent(
 				'<div class="info-window"><div><a class="info-window-title" href="' +
 				 url + '">' + name + '</a></div><div>' + address + '</div></div>');
@@ -117,7 +119,7 @@ var Location = function(data){
 		// If the infoWindow is clicked, clear the marker and stop the animation
 		infoWindow.addListener('closeclick', function(){
 				infoWindow.marker = null;
-				marker.setAnimation(null)
+				marker.setAnimation(null);
 			});
 		}
 	
@@ -126,7 +128,7 @@ var Location = function(data){
 	this.showInfoWindow = function() {
         google.maps.event.trigger(self.marker, 'click');
     };
-}
+};
 
 
 function makeMarkerIcon(markerColor) {
@@ -170,7 +172,7 @@ var ViewModel = function() {
 			self.locationList().forEach(function(loc) {
 				loc.show(true);
 			});
-			return self.locationList()
+			return self.locationList();
 		}
 	});
 
@@ -179,9 +181,9 @@ var ViewModel = function() {
 	this.toggleList = function (toggle) {
 		var list = document.getElementById("list");
 		list.style.display = list.style.display == "none" ? "block" : "none";
-	}
+	};
 
-}
+};
 
 function initMap() {
 
